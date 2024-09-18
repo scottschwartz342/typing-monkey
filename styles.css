@@ -1,0 +1,8 @@
+/* border: 2px black solid; */
+
+#title {
+    text-align: center;
+    width: fit-content;
+    font-size: 2em;
+    padding: 0px;
+}
