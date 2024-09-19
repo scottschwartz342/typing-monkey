@@ -7,7 +7,25 @@ let getRandomLetter = (n) => {
   return String.fromCharCode(Math.floor(Math.random() * n) + 97);
 };
 
-async function findWordInDictionary(wordToCheck) {
+async function getPossibleWords(wordToCheck) {
+  try {
+    const response = await fetch(
+      `https://api.datamuse.com/words?sp=${wordToCheck}*`
+    );
+
+    if (!response.ok) {
+      throw new Error("Could not find word");
+    }
+
+    const data = await response.json();
+
+    return data.length;
+  } catch (error) {
+    return 0;
+  }
+}
+
+async function isWordInDictionary(wordToCheck) {
   try {
     const response = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToCheck}`
@@ -24,26 +42,29 @@ async function findWordInDictionary(wordToCheck) {
 }
 
 async function run() {
+  const foundWords = [];
   console.log("Here we go...");
 
   const time = getTime();
-  // if (!time) return;
+  if (!time) return;
 
-  let notWord = false;
+  let currentPossibleWords = 1;
 
-  while (!notWord) {
-    let currWord = "";
+  let currWord = "";
+  let prevWord = "";
 
-    for (let i = 0; i < 3; i++) {
-      currWord += getRandomLetter(26);
-    }
+  while (currentPossibleWords > 0) {
+    prevWord = currWord;
+    currWord += getRandomLetter(26);
 
-    notWord = await findWordInDictionary(currWord);
-    console.log(currWord);
-    console.log(notWord);
+    currentPossibleWords = await getPossibleWords(currWord);
   }
 
-  console.log("YOU WIN");
-}
+  console.log(prevWord);
+  const isWord = await isWordInDictionary(prevWord);
+  if (isWord) {
+    foundWords.push(prevWord);
+  }
 
-run();
+  console.log(foundWords);
+}
