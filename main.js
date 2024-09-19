@@ -1,3 +1,6 @@
+let numberOfLettersTyped = 0;
+let numberOfFailedWordsTyped = 0;
+
 let getTime = () => {
   const input = document.getElementById("time");
   return input.value;
@@ -48,23 +51,35 @@ async function run() {
   const time = getTime();
   if (!time) return;
 
-  let currentPossibleWords = 1;
+  let startTime = Date.now();
 
-  let currWord = "";
-  let prevWord = "";
+  while (Date.now() - startTime < time * 1000) {
+    let currentPossibleWords = 1;
+    let currWord = "";
+    let prevWord = "";
 
-  while (currentPossibleWords > 0) {
-    prevWord = currWord;
-    currWord += getRandomLetter(26);
+    while (currentPossibleWords > 0) {
+      prevWord = currWord;
+      currWord += getRandomLetter(26);
+      numberOfLettersTyped++;
 
-    currentPossibleWords = await getPossibleWords(currWord);
+      currentPossibleWords = await getPossibleWords(currWord);
+    }
+
+    // console.log(prevWord);
+    const isWord = await isWordInDictionary(prevWord);
+    if (isWord) {
+      foundWords.push(prevWord);
+    } else {
+      numberOfFailedWordsTyped++;
+    }
+    console.log("Looping...");
   }
 
-  console.log(prevWord);
-  const isWord = await isWordInDictionary(prevWord);
-  if (isWord) {
-    foundWords.push(prevWord);
-  }
+  console.log("Done looping!");
 
   console.log(foundWords);
+  console.log(numberOfLettersTyped);
+  console.log(foundWords.length);
+  console.log(numberOfFailedWordsTyped);
 }
