@@ -1,6 +1,3 @@
-let numberOfLettersTyped = 0;
-let numberOfFailedWordsTyped = 0;
-
 let getTime = () => {
   const input = document.getElementById("time");
   return input.value;
@@ -30,28 +27,49 @@ async function getWordData(wordToCheck) {
 
 async function populateFoundWords(time) {
   let startTime = Date.now();
+  const foundWords = [];
+
+  console.log("Starting to loop...");
 
   while (Date.now() - startTime < time * 1000) {
-    let currWordIsPrefix = true;
     let currWord = getRandomLetter();
     let lastValidWord = "";
 
-    const wordData = await getWordData(currWord);
+    // if (currWord === "a" || currWord === "i") {
+    //   foundWords.push(currWord);
+    //   continue;
+    // }
 
-    if (wordData.length == 0) {
+    while (true) {
+      const wordData = await getWordData(currWord);
+
       // not prefix, not word
-    } else if (wordData[1] !== currWord) {
-      // prefix, not word
-    } else if (wordData.length == 1) {
-      // not prefix, word
-    } else {
+      if (wordData.length == 0) {
+        break;
+      }
+
+      // just a word, not a prefix
+      if (wordData[1] === currWord && wordData.length == 1) {
+        foundWords.push(currWord);
+        break;
+      }
+
       // prefix, word
+      if (wordData[1] === currWord && wordData.length > 1) {
+        lastValidWord = currWord;
+      }
+
+      //prefix and word OR prefix and word
+      //either way get another letter and keep looping
+      currWord += getRandomLetter();
     }
 
     console.log("Looping...");
   }
 
   console.log("Done looping!");
+
+  return foundWords;
 }
 
 async function run() {
@@ -60,7 +78,7 @@ async function run() {
   const time = getTime();
   if (!time) return;
 
-  const foundWords = populateFoundWords(time0);
+  const foundWords = await populateFoundWords(time);
 
   console.log(foundWords);
 }
