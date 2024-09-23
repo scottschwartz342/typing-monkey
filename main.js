@@ -6,11 +6,11 @@ let getTime = () => {
   return input.value;
 };
 
-let getRandomLetter = (n) => {
-  return String.fromCharCode(Math.floor(Math.random() * n) + 97);
+let getRandomLetter = () => {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 };
 
-async function getPossibleWords(wordToCheck) {
+async function getWordData(wordToCheck) {
   try {
     const response = await fetch(
       `https://api.datamuse.com/words?sp=${wordToCheck}*`
@@ -22,64 +22,45 @@ async function getPossibleWords(wordToCheck) {
 
     const data = await response.json();
 
-    return data.length;
+    return data;
   } catch (error) {
-    return 0;
+    return [];
   }
 }
 
-async function isWordInDictionary(wordToCheck) {
-  try {
-    const response = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToCheck}`
-    );
+async function populateFoundWords(time) {
+  let startTime = Date.now();
 
-    if (!response.ok) {
-      throw new Error("Could not find word");
+  while (Date.now() - startTime < time * 1000) {
+    let currWordIsPrefix = true;
+    let currWord = getRandomLetter();
+    let lastValidWord = "";
+
+    const wordData = await getWordData(currWord);
+
+    if (wordData.length == 0) {
+      // not prefix, not word
+    } else if (wordData[1] !== currWord) {
+      // prefix, not word
+    } else if (wordData.length == 1) {
+      // not prefix, word
+    } else {
+      // prefix, word
     }
 
-    return true;
-  } catch (error) {
-    return false;
+    console.log("Looping...");
   }
+
+  console.log("Done looping!");
 }
 
 async function run() {
-  const foundWords = [];
   console.log("Here we go...");
 
   const time = getTime();
   if (!time) return;
 
-  let startTime = Date.now();
-
-  while (Date.now() - startTime < time * 1000) {
-    let currentPossibleWords = 1;
-    let currWord = "";
-    let prevWord = "";
-
-    while (currentPossibleWords > 0) {
-      prevWord = currWord;
-      currWord += getRandomLetter(26);
-      numberOfLettersTyped++;
-
-      currentPossibleWords = await getPossibleWords(currWord);
-    }
-
-    // console.log(prevWord);
-    const isWord = await isWordInDictionary(prevWord);
-    if (isWord) {
-      foundWords.push(prevWord);
-    } else {
-      numberOfFailedWordsTyped++;
-    }
-    console.log("Looping...");
-  }
-
-  console.log("Done looping!");
+  const foundWords = populateFoundWords(time0);
 
   console.log(foundWords);
-  console.log(numberOfLettersTyped);
-  console.log(foundWords.length);
-  console.log(numberOfFailedWordsTyped);
 }
