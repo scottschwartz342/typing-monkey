@@ -35,11 +35,6 @@ async function populateFoundWords(time) {
     let currWord = getRandomLetter();
     let lastValidWord = "";
 
-    // if (currWord === "a" || currWord === "i") {
-    //   foundWords.push(currWord);
-    //   continue;
-    // }
-
     while (true) {
       const wordData = await getWordData(currWord);
 
