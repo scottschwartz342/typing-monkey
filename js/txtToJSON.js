@@ -1,6 +1,5 @@
 import DLBTrie from "./DLBTrie.js";
-
-const fs = require("fs");
+import fs from "fs";
 
 // Load dictionary words from a .txt file
 const words = fs

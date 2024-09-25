@@ -1,3 +1,7 @@
+import DLBInterpreter from "./DLBInterpreter";
+
+const interpreter = new DLBInterpreter();
+
 let getTime = () => {
   const input = document.getElementById("time");
   return input.value;
@@ -6,24 +10,6 @@ let getTime = () => {
 let getRandomLetter = () => {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 };
-
-async function getWordData(wordToCheck) {
-  try {
-    const response = await fetch(
-      `https://api.datamuse.com/words?sp=${wordToCheck}*`
-    );
-
-    if (!response.ok) {
-      throw new Error("Could not find word");
-    }
-
-    const data = await response.json();
-
-    return data;
-  } catch (error) {
-    return [];
-  }
-}
 
 async function populateFoundWords(time) {
   let startTime = Date.now();
