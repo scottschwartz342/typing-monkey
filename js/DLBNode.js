@@ -1,6 +1,6 @@
 export default class DLBNode {
-  constructor(value = null) {
-    this.value = value;
+  constructor(charValue = null) {
+    this.charValue = charValue;
     this.child = null;
     this.sibling = null;
     this.isEndOfWord = false;

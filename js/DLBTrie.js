@@ -20,11 +20,11 @@ export default class DLBTrie {
     }
 
     let current = node.child;
-    while (current.value !== char && current.sibling !== null) {
+    while (current.charValue !== char && current.sibling !== null) {
       current = current.sibling;
     }
 
-    if (current.value === char) {
+    if (current.charValue === char) {
       return current;
     }
 
