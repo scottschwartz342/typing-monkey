@@ -12,4 +12,8 @@ export default class DLBInterpreter {
         return DLBTrie.deserialize(JSON.stringify(data));
       });
   }
+
+  isWord(word) {
+    return false;
+  }
 }
