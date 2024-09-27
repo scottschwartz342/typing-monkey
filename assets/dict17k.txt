@@ -1180,7 +1180,6 @@ azimuth
 aztec
 aztecan
 azure
-b
 babbitt
 babble
 babcock
@@ -2451,7 +2450,6 @@ byronic
 byte
 byway
 byword
-c
 cab
 cabal
 cabana
@@ -3964,7 +3962,6 @@ cyst
 czar
 czarina
 czerniak
-d
 dab
 dabbing
 dabble
@@ -4738,7 +4735,6 @@ dynast
 dynastic
 dynasty
 dyne
-e
 each
 eagan
 eager
@@ -5425,7 +5421,6 @@ eyepiece
 eyesight
 ezekiel
 ezra
-f
 faa
 faber
 fabian
@@ -6223,7 +6218,6 @@ futile
 future
 fuzz
 fuzzy
-g
 gab
 gabbing
 gabble
@@ -6934,7 +6928,6 @@ gypsum
 gypsy
 gyrate
 gyro
-h
 ha
 haag
 haas
@@ -8124,7 +8117,6 @@ ivory
 ivy
 ix
 izvestia
-j
 jab
 jabbing
 jack
@@ -8386,7 +8378,6 @@ jute
 jutish
 jutting
 juvenile
-k
 kabuki
 kabul
 kaddish
@@ -8650,7 +8641,6 @@ kurt
 kuwait
 kyle
 kyoto
-l
 la
 lab
 laban
@@ -9344,7 +9334,6 @@ lyra
 lyric
 lyricism
 lysergic
-m
 ma
 mabel
 mac
@@ -10370,7 +10359,6 @@ mystify
 mystique
 myth
 mythic
-n
 naacp
 nab
 nabbing
@@ -10753,7 +10741,6 @@ nylon
 nymph
 nyquist
 nyu
-o
 oaf
 oak
 oaken
@@ -11090,7 +11077,6 @@ oxygen
 oyster
 ozark
 ozone
-p
 pa
 pablo
 pabst
@@ -12293,7 +12279,6 @@ pyrite
 pyrolyse
 pyroxene
 python
-q
 qatar
 qed
 qua
@@ -12380,7 +12365,6 @@ quorum
 quota
 quote
 quotient
-r
 rabat
 rabbet
 rabbi
@@ -13125,7 +13109,6 @@ ryan
 rydberg
 ryder
 rye
-s
 sa
 sabbath
 sabina
@@ -15177,7 +15160,6 @@ syrup
 syrupy
 system
 systemic
-t
 tab
 tabbing
 table
@@ -16113,7 +16095,6 @@ tyranny
 tyrant
 tyrosine
 tyson
-u
 ubiquity
 ucla
 uganda
@@ -16266,7 +16247,6 @@ utmost
 utopia
 utopian
 utter
-v
 vacant
 vacate
 vaccine
@@ -16583,7 +16563,6 @@ vulgar
 vulpine
 vulture
 vying
-w
 waals
 wabash
 wac
@@ -17124,7 +17103,6 @@ wyman
 wyner
 wynn
 wyoming
-x
 xavier
 xenon
 xerox
@@ -17132,7 +17110,6 @@ xerxes
 xi
 xylem
 xylene
-y
 yacht
 yah
 yak
@@ -17220,7 +17197,6 @@ yule
 yves
 yvette
 ywca
-z
 zachary
 zag
 zagging

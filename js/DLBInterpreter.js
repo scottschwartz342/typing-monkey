@@ -73,7 +73,7 @@ export default class DLBInterpreter {
   }
 
   reset() {
-    this.initAsyncConstructors();
+    this.currNode = this.rootNode;
     this.currString = "";
   }
 }

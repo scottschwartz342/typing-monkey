@@ -17,7 +17,8 @@ function populateFoundWords(time) {
 
   console.log("Starting to loop...");
 
-  while (Date.now() - startTime < time * 1000) {
+  // while (Date.now() - startTime < time * 1000) {
+  for (let i = 0; i < 10000; i++) {
     let charToAdd = getRandomLetter();
     let currWord = "";
     let lastValidWord = "";
@@ -48,7 +49,7 @@ function populateFoundWords(time) {
       //either way get another letter and keep looping
       charToAdd = getRandomLetter();
     }
-
+    interpreter.reset();
     console.log("Looping...");
   }
 
