@@ -3,7 +3,7 @@ import fs from "fs";
 
 // Load dictionary words from a .txt file
 const words = fs
-  .readFileSync("assets/dict17k.txt", "utf8")
+  .readFileSync("assets/usa.txt", "utf8")
   .split("\n")
   .map((word) => word.trim());
 
