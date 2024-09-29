@@ -2,22 +2,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Typing Monkey</title>
+    <title>Type Monkey! Type!</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
   <body>
     <!-- title -->
     <div id="title">
-      <h1>The Typing Monkey</h1>
+      <h1>Type Monkey! Type!</h1>
     </div>
 
-    <div>
+    <!-- nav bar -->
+    <ul id="nav_bar">
+      <li><a href="about.html"> About </a></li>
+      <li>
+        <a href="https://github.com/scottschwartz342/typing-monkey">
+          Source Code
+        </a>
+      </li>
+    </ul>
+
+    <!-- user input -->
+    <div id="user_input_section">
+      <h1>Let's get this monkey going...</h1>
       <label for="time">How many seconds should our monkey type:</label>
       <input type="text" id="time" name="time" placeholder="Enter time" />
       <button onclick="run()">Lets get typing...</button>
     </div>
 
+    <!-- found words output -->
+    <div id="output"></div>
+
+    <!-- script -->
     <script type="module" src="js/Main.js"></script>
   </body>
 </html>

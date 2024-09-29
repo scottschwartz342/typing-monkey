@@ -1,6 +1,8 @@
 import DLBInterpreter from "./DLBInterpreter.js";
+import Sorter from "./Sorter.js";
 
 const interpreter = new DLBInterpreter();
+let everyLetterAttempted = "";
 
 let getTime = () => {
   const input = document.getElementById("time");
@@ -26,6 +28,7 @@ function populateFoundWords(time) {
     while (true) {
       interpreter.addChar(charToAdd);
       currWord += charToAdd;
+      everyLetterAttempted += charToAdd;
 
       let isPrefixIsWordResult = interpreter.isPrefixIsWord();
 
@@ -59,15 +62,18 @@ function populateFoundWords(time) {
   return foundWords;
 }
 
-export function run() {
+function run() {
   console.log("Here we go...");
 
   const time = getTime();
   if (!time) return;
 
   const foundWords = populateFoundWords(time);
+  const foundWordsSorter = new Sorter(foundWords);
 
-  console.log(foundWords);
+  console.log(foundWordsSorter.arr);
+  console.log(foundWordsSorter.shortestWord);
+  console.log(foundWordsSorter.longestWord);
 }
 
 window.run = run;
