@@ -21,7 +21,6 @@ function typeAndFindWords(time) {
   console.log("Starting to loop...");
 
   while (Date.now() - startTime < time * 1000) {
-    // for (let i = 0; i < 10000; i++) {
     let charToAdd = getRandomLetter();
     let currWord = "";
 
@@ -82,11 +81,11 @@ function processWords() {
 
   console.log(wordsFoundSorted.longestWord);
 
-  monkey_response.innerHTML = `I typed total ${totalWordsCount.toLocaleString()} words and ${uniqueWordsFound.size.toLocaleString()} unique words. Here they are:`;
+  monkey_response.innerHTML = `I typed a total of ${totalWordsCount.toLocaleString()} words and ${uniqueWordsFound.size.toLocaleString()} unique words. Here they are:`;
 
   monkey_output.classList.remove("hidden");
 
-  monkey_output.innerHTML = Array.from(wordsFoundSorted.longestWord);
+  monkey_output.innerHTML = Array.from(wordsFoundSorted.longestWord).join("\t");
 }
 
 window.run = run;

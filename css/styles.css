@@ -74,6 +74,7 @@ header {
 
 .message {
   max-width: 70%;
+  width: fit-content;
   margin: 10px 0;
   padding: 10px 15px;
   border-radius: 20px;
@@ -85,15 +86,15 @@ header {
   background-color: #e5e5ea;
   color: #000;
   align-self: flex-start;
-  border-radius: 20px 20px 20px 5px; /* Rounded corners except top-left */
+  border-radius: 20px 20px 20px 5px;
 }
 
 .user {
   background-color: #007aff;
   color: white;
   align-self: flex-end;
-  border-radius: 20px 20px 5px 20px; /* Rounded corners except top-right */
-  margin-left: auto; /* Push sender's messages to the right */
+  border-radius: 20px 20px 5px 20px;
+  margin-left: auto;
 }
 
 .message p {
@@ -102,4 +103,10 @@ header {
 
 .hidden {
   display: none;
+}
+
+.scrollable {
+  max-height: 100px; /* Limit the height */
+  width: 70%; /* Set width of the list item */
+  overflow-y: scroll; /* Always show vertical scrollbar */
 }
