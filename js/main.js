@@ -62,9 +62,29 @@ function populateFoundWords(time) {
   return foundWords;
 }
 
-function run() {
-  console.log("Here we go...");
+// function run() {
+//   const element = document.getElementById("monkey_sure");
+//   element.classList.remove("hidden");
 
+//   const time = getTime();
+//   if (!time) return;
+
+//   const foundWords = populateFoundWords(time);
+//   const foundWordsSorter = new Sorter(foundWords);
+
+//   console.log(foundWordsSorter.arr);
+//   console.log(foundWordsSorter.shortestWord);
+//   console.log(foundWordsSorter.longestWord);
+// }
+
+function run() {
+  const element = document.getElementById("monkey_sure");
+  element.classList.remove("hidden");
+
+  setTimeout(processWords, 0);
+}
+
+function processWords() {
   const time = getTime();
   if (!time) return;
 

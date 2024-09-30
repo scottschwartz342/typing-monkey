@@ -24,18 +24,37 @@
       <div class="left-sidebar">I am left sidebar</div>
 
       <main>
-        <!-- user input -->
-        <div id="user_input_section">
-          <h1>Let's get this monkey going...</h1>
-          <label for="time">How many seconds should our monkey type:</label>
-          <input type="text" id="time" name="time" placeholder="Enter time" />
-          <button onclick="run()">Lets get typing...</button>
+        <h1>Let's get this monkey going...</h1>
+        <p>
+          Simply type in the amount of time (in seconds) you want the monkey to
+          type for. Then hit the send button. If you would like to start again,
+          you can rehit the send button.
+        </p>
+        <div id="convo_container">
+          <ul id="text_convo">
+            <li class="message user">Hey my favorite monkey!</li>
+            <li class="message monkey">Hey man what's up?</li>
+            <li class="message user">
+              Could you type some random stuff for me?
+            </li>
+            <li class="message monkey">
+              I mean sure... How many seconds do you want me to type for?
+            </li>
+            <li class="message user">
+              <label for="time">Can you please type for </label>
+              <input type="text" id="time" name="time" />
+              <label for="time">seconds</label>
+              <button onclick="run()">Send</button>
+            </li>
+            <li id="monkey_sure" class="message monkey hidden">Sure</li>
+            <li>
+              <img src="images/thinking-monkey.gif" alt="monkey" />
+            </li>
+          </ul>
         </div>
       </main>
 
-      <div class="right-sidebar">
-        I am right sidebar and I am having more text
-      </div>
+      <div class="right-sidebar">I am right sidebar</div>
 
       <footer>I am footer</footer>
     </div>
