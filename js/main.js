@@ -13,9 +13,10 @@ let getRandomLetter = () => {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 };
 
-function populateFoundWords(time) {
+function typeAndFindWords(time) {
   let startTime = Date.now();
-  const foundWords = [];
+  let numOfWordsFound = 0;
+  const uniqueWordsFound = new Set();
 
   console.log("Starting to loop...");
 
@@ -38,7 +39,8 @@ function populateFoundWords(time) {
 
       // just a word, not a prefix
       if (isPrefixIsWordResult === 1) {
-        foundWords.push(currWord);
+        numOfWordsFound++;
+        uniqueWordsFound.add(currWord);
         break;
       }
 
@@ -51,7 +53,7 @@ function populateFoundWords(time) {
 
   console.log("Done looping!");
 
-  return foundWords;
+  return [numOfWordsFound, uniqueWordsFound];
 }
 
 function run() {
@@ -66,6 +68,7 @@ function run() {
 
 function processWords() {
   const monkey_response = document.getElementById("monkey_response");
+  const monkey_output = document.getElementById("monkey_output");
 
   const time = getTime();
   if (!time) {
@@ -73,13 +76,17 @@ function processWords() {
     return;
   }
 
-  const foundWords = populateFoundWords(time);
-  const foundWordsSorter = new Sorter(foundWords);
+  const [totalWordsCount, uniqueWordsFound] = typeAndFindWords(time);
 
-  console.log(foundWordsSorter.arr);
-  console.log(foundWordsSorter.shortestWord);
-  console.log(foundWordsSorter.longestWord);
-  monkey_response.innerHTML = `I typed ${foundWords.length} words. Here they are`;
+  const wordsFoundSorted = new Sorter(uniqueWordsFound);
+
+  console.log(wordsFoundSorted.longestWord);
+
+  monkey_response.innerHTML = `I typed total ${totalWordsCount.toLocaleString()} words and ${uniqueWordsFound.size.toLocaleString()} unique words. Here they are:`;
+
+  monkey_output.classList.remove("hidden");
+
+  monkey_output.innerHTML = Array.from(wordsFoundSorted.longestWord);
 }
 
 window.run = run;
