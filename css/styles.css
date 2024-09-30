@@ -149,9 +149,9 @@ main p {
 }
 
 .scrollable {
-  max-height: 100px; /* Limit the height */
-  width: 70%; /* Set width of the list item */
-  overflow-y: scroll; /* Always show vertical scrollbar */
+  max-height: 100px;
+  width: 70%;
+  overflow-y: scroll;
 }
 
 /* footer */
@@ -170,4 +170,18 @@ footer a {
 
 footer a:hover {
   color: lightskyblue;
+}
+
+/* responsive */
+@media screen and (max-width: 800px) {
+  .left-sidebar,
+  .right-sidebar {
+    display: none;
+  }
+
+  .grid_container {
+    height: 100vh;
+    display: grid;
+    grid: auto 1fr auto / 0 1fr 0;
+  }
 }

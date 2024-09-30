@@ -18,8 +18,6 @@ function typeAndFindWords(time) {
   let numOfWordsFound = 0;
   const uniqueWordsFound = new Set();
 
-  console.log("Starting to loop...");
-
   while (Date.now() - startTime < time * 1000) {
     let charToAdd = getRandomLetter();
     let currWord = "";
@@ -49,8 +47,6 @@ function typeAndFindWords(time) {
     }
     interpreter.reset();
   }
-
-  console.log("Done looping!");
 
   return [numOfWordsFound, uniqueWordsFound];
 }
@@ -84,8 +80,6 @@ function processWords() {
   const [totalWordsCount, uniqueWordsFound] = typeAndFindWords(time);
 
   const wordsFoundSorted = new Sorter(uniqueWordsFound);
-
-  console.log(wordsFoundSorted.longestWord);
 
   submit_button.classList.toggle("hidden");
 
