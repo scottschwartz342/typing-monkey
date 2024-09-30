@@ -23,7 +23,6 @@ function populateFoundWords(time) {
     // for (let i = 0; i < 10000; i++) {
     let charToAdd = getRandomLetter();
     let currWord = "";
-    let lastValidWord = "";
 
     while (true) {
       interpreter.addChar(charToAdd);
@@ -43,18 +42,11 @@ function populateFoundWords(time) {
         break;
       }
 
-      // prefix, word
-      if (isPrefixIsWordResult === 3) {
-        lastValidWord = currWord;
-      }
-
       //prefix and word OR prefix and word
       //either way get another letter and keep looping
       charToAdd = getRandomLetter();
     }
     interpreter.reset();
-    console.log(`remaining time: ${Date.now() - startTime}`);
-    console.log("Looping...");
   }
 
   console.log("Done looping!");
@@ -62,31 +54,24 @@ function populateFoundWords(time) {
   return foundWords;
 }
 
-// function run() {
-//   const element = document.getElementById("monkey_sure");
-//   element.classList.remove("hidden");
-
-//   const time = getTime();
-//   if (!time) return;
-
-//   const foundWords = populateFoundWords(time);
-//   const foundWordsSorter = new Sorter(foundWords);
-
-//   console.log(foundWordsSorter.arr);
-//   console.log(foundWordsSorter.shortestWord);
-//   console.log(foundWordsSorter.longestWord);
-// }
-
 function run() {
-  const element = document.getElementById("monkey_sure");
-  element.classList.remove("hidden");
+  const monkey_sure = document.getElementById("monkey_sure");
+  const monkey_response = document.getElementById("monkey_response");
+
+  monkey_sure.classList.remove("hidden");
+  monkey_response.classList.remove("hidden");
 
   setTimeout(processWords, 0);
 }
 
 function processWords() {
+  const monkey_response = document.getElementById("monkey_response");
+
   const time = getTime();
-  if (!time) return;
+  if (!time) {
+    monkey_response.innerHTML = "Please enter a valid time.";
+    return;
+  }
 
   const foundWords = populateFoundWords(time);
   const foundWordsSorter = new Sorter(foundWords);
@@ -94,6 +79,7 @@ function processWords() {
   console.log(foundWordsSorter.arr);
   console.log(foundWordsSorter.shortestWord);
   console.log(foundWordsSorter.longestWord);
+  monkey_response.innerHTML = `I typed ${foundWords.length} words. Here they are`;
 }
 
 window.run = run;
