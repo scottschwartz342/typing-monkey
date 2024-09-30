@@ -1,0 +1,57 @@
+/* holy grail grid layout setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid_container {
+  height: 100vh;
+  display: grid;
+  grid: auto 1fr auto / 100px 1fr 100px;
+}
+
+header {
+  grid-column: 1 / 4;
+  background-color: red;
+}
+
+.left-sidebar {
+  grid-column: 1 / 2;
+  background-color: green;
+}
+
+main {
+  grid-column: 2 / 3;
+  background-color: plum;
+}
+
+.right-sidebar {
+  grid-column: 3 / 4;
+  background-color: greenyellow;
+}
+
+footer {
+  grid-column: 1 / 4;
+  background-color: blue;
+  color: white;
+}
+
+/* header */
+header {
+  text-align: center;
+}
+
+#nav_bar {
+  list-style-type: none;
+}
+
+#nav_bar li {
+  display: inline;
+}
+
+#nav_bar a {
+  text-decoration: none;
+  color: black;
+  margin: 5px 10px 0px;
+}
