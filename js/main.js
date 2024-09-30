@@ -58,9 +58,15 @@ function typeAndFindWords(time) {
 function run() {
   const monkey_sure = document.getElementById("monkey_sure");
   const monkey_response = document.getElementById("monkey_response");
+  const monkey_output = document.getElementById("monkey_output");
+  const submit_button = document.getElementById("submit_button");
 
+  submit_button.classList.toggle("hidden");
   monkey_sure.classList.remove("hidden");
   monkey_response.classList.remove("hidden");
+  monkey_output.classList.add("hidden");
+
+  monkey_response.innerHTML = "...";
 
   setTimeout(processWords, 0);
 }
@@ -80,6 +86,8 @@ function processWords() {
   const wordsFoundSorted = new Sorter(uniqueWordsFound);
 
   console.log(wordsFoundSorted.longestWord);
+
+  submit_button.classList.toggle("hidden");
 
   monkey_response.innerHTML = `I typed a total of ${totalWordsCount.toLocaleString()} words and ${uniqueWordsFound.size.toLocaleString()} unique words. Here they are:`;
 

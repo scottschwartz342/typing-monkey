@@ -8,42 +8,48 @@
 .grid_container {
   height: 100vh;
   display: grid;
-  grid: auto 1fr auto / auto 1fr auto;
+  grid: auto 1fr auto / 8rem 1fr 8rem;
 }
 
 header {
   grid-column: 1 / 4;
-  background-color: red;
+  background-color: rgb(49, 49, 49);
 }
 
 .left-sidebar {
   grid-column: 1 / 2;
-  background-color: green;
+  background-image: linear-gradient(rgb(49, 49, 49), black);
 }
 
 main {
   grid-column: 2 / 3;
-  background-color: plum;
+  background-color: rgb(49, 49, 49);
 }
 
 .right-sidebar {
   grid-column: 3 / 4;
-  background-color: greenyellow;
+  background-image: linear-gradient(rgb(49, 49, 49), black);
 }
 
 footer {
   grid-column: 1 / 4;
-  background-color: blue;
+  background-color: black;
   color: white;
 }
 
 /* header */
 header {
+  padding-top: 1rem;
   text-align: center;
+}
+
+header h1 {
+  color: yellow;
 }
 
 #nav_bar {
   list-style-type: none;
+  padding-top: 3px;
 }
 
 #nav_bar li {
@@ -52,17 +58,33 @@ header {
 
 #nav_bar a {
   text-decoration: none;
-  color: black;
+  color: antiquewhite;
   margin: 5px 10px 0px;
 }
 
+#nav_bar a:hover {
+  color: red;
+}
+
 /* main content */
+main {
+  padding: 1rem;
+  color: antiquewhite;
+}
+
+main h1 {
+  color: red;
+}
+
+main p {
+  color: yellow;
+}
 
 #convo_container {
   width: 90%;
   margin: 50px auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: whitesmoke;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -84,17 +106,38 @@ header {
 
 .monkey {
   background-color: #e5e5ea;
-  color: #000;
+  color: black;
   align-self: flex-start;
   border-radius: 20px 20px 20px 5px;
 }
 
 .user {
   background-color: #007aff;
-  color: white;
+  color: whitesmoke;
   align-self: flex-end;
   border-radius: 20px 20px 5px 20px;
   margin-left: auto;
+}
+
+.user input {
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 5em;
+}
+
+.user button {
+  clear: both;
+  text-align: center;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.user button:hover {
+  background-color: black;
+  color: whitesmoke;
 }
 
 .message p {
@@ -109,4 +152,22 @@ header {
   max-height: 100px; /* Limit the height */
   width: 70%; /* Set width of the list item */
   overflow-y: scroll; /* Always show vertical scrollbar */
+}
+
+/* footer */
+footer {
+  padding-bottom: 1rem;
+  padding-top: 0.3rem;
+  text-align: center;
+  color: gray;
+}
+
+footer a {
+  text-decoration: none;
+  color: gainsboro;
+  margin: 5px 10px 0px;
+}
+
+footer a:hover {
+  color: lightskyblue;
 }

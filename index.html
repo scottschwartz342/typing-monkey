@@ -21,7 +21,7 @@
         </ul>
       </header>
 
-      <div class="left-sidebar">I am left sidebar</div>
+      <aside class="left-sidebar"></aside>
 
       <main>
         <h1>Let's get this monkey going...</h1>
@@ -44,7 +44,7 @@
               <label for="time">Can you please type for </label>
               <input type="text" id="time" name="time" />
               <label for="time">seconds</label>
-              <button onclick="run()">Send</button>
+              <button onclick="run()" id="submit_button">Send</button>
             </li>
             <li id="monkey_sure" class="message monkey hidden">
               Sure! I will type randomly and see what words I come up with.
@@ -61,9 +61,14 @@
         </div>
       </main>
 
-      <div class="right-sidebar">I am right sidebar</div>
+      <aside class="right-sidebar"></aside>
 
-      <footer>I am footer</footer>
+      <footer>
+        <h4>made by Scott Schwartz</h4>
+        <a href="https://scottschwartz342.github.io/" target="_blank">
+          Click Here for Portfolio Website
+        </a>
+      </footer>
     </div>
 
     <!-- script -->
