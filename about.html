@@ -25,7 +25,51 @@
 
       <aside class="left-sidebar"></aside>
 
-      <main></main>
+      <main id="main_about">
+        <h2>Infinite Monkey Theorem</h2>
+        <p>
+          The infinite monkey theorem states that if a monkey hits keys randomly
+          on a typewriter for an endless amount of time, he will eventually type
+          out any given text. This includes full William Shakespeare plays, rap
+          songs, and newspaper articles. Anything written can and eventually
+          will be typed out by the monkey. I suggest visiting its Wikipedia page
+          to read about this theorem more in-depth. There, they go into the
+          proofs and math behind it.
+        </p>
+        <br />
+        <h2>Inspiration</h2>
+        <p>
+          This theorem intrigued me when I first heard of it, mostly because of
+          the name. I also like how it puts the idea of infinity into
+          perspective. Although other websites already exist based upon this
+          theorem, I still thought it would be an amusing personal project. This
+          website was not based on any of those other websites. This is my take
+          on the infinite monkey theorem.
+        </p>
+        <br />
+        <h2>Behind the Scenes (About the Code)</h2>
+        <p>
+          This webpage was written with HTML, CSS, and Javascript. This webpage
+          uses the “Holy Grail” layout via a CSS grid. I am still working on my
+          style, but I am pleased with how this webpage turned out.
+        </p>
+        <p>
+          There was some trial and error on the backend. The “monkey that is
+          typing” is a method that randomly picks a character from “a - z”. That
+          character is then added to a temporary working string. There are four
+          outcomes once that new character is added to the word. The word is
+          either a prefix and a word, prefix and not a word, not a prefix and a
+          word, not a prefix or word. These conditions are checked whenever a
+          character is added.
+        </p>
+        <p>
+          Originally, I went with an API-based solution to get more experience
+          with them. Unfortunately, this took way too long. I changed course
+          with a local dictionary implemented as a de la Briandais Trie (DLB).
+          This DLB is stored in a JSON file within the webpage. This greatly
+          increased the speed of our “monkey”.
+        </p>
+      </main>
 
       <aside class="right-sidebar"></aside>
 

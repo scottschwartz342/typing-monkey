@@ -43,8 +43,10 @@ header {
   text-align: center;
 }
 
-header h1 {
+#title {
+  font-size: 3rem;
   color: yellow;
+  padding-bottom: 0.5rem;
 }
 
 #nav_bar {
@@ -152,6 +154,19 @@ main p {
   max-height: 100px;
   width: 70%;
   overflow-y: scroll;
+}
+
+/* main about */
+#main_about {
+  padding: 1em 3em;
+}
+
+#main_about h2 {
+  color: yellow;
+}
+
+#main_about p {
+  color: antiquewhite;
 }
 
 /* footer */
